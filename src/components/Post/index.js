@@ -1,5 +1,4 @@
 const Post = ({ author, date, text }) => {
-
     return (
         <div className='message-item'>
             <div className='message-item-header'>

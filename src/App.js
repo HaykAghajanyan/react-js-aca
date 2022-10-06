@@ -1,8 +1,11 @@
-import {useCallback, useState} from "react";
+import {lazy, useCallback, useState} from "react";
+import {useRoutes, Navigate} from 'react-router-dom'
 
-import Circle from "./components/Circle";
 import Header from "./components/Header";
-import Messages from "./pages/Messages";
+import Redirect from './components/Redirect';
+
+const Messages = lazy(() => import('./pages/Messages'))
+const Circles = lazy(() => import('./pages/Circles'))
 
 const circles = [
     {
@@ -32,6 +35,7 @@ const circles = [
 
 // controlled and uncontrolled components
 // memoize
+// chunk
 
 const App = () => {
     const [activeCircle, setActiveCircle] = useState(null)
@@ -44,24 +48,36 @@ const App = () => {
         }
     }, [activeCircle])
 
+    const routes = useRoutes([
+        {
+            path: '',
+            element: <Circles
+                circles={circles}
+                changeColor={changeColor}
+                setActiveCircle={setActiveCircle}
+            />,
+        },
+        {
+            path: 'messages',
+            element: <Messages/>,
+            children: [
+                {
+                    path: ':id',
+                    element: <div>MESSAGE</div>
+                }
+            ]
+        },
+        {
+            path: '*',
+            element: <Navigate to='' />,
+        }
+    ])
 
     return (
         <>
             <Header color={circles[activeCircle - 1]?.color}/>
-
             <div className='container'>
-                {/*{*/}
-                {/*    circles.map(({id, color}) => (*/}
-                {/*        <Circle*/}
-                {/*            id={id}*/}
-                {/*            key={id}*/}
-                {/*            color={color}*/}
-                {/*            changeColor={changeColor}*/}
-                {/*            activeCircle={activeCircle}*/}
-                {/*        />*/}
-                {/*    ))*/}
-                {/*}*/}
-                <Messages />
+                {routes}
             </div>
         </>
     )

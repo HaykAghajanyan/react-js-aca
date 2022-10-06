@@ -1,21 +1,26 @@
 import PropTypes from "prop-types";
+import {NavLink} from "react-router-dom";
 
 const navigation = [
     {
         id: '1',
         title: 'Home',
+        to: '/',
     },
     {
         id: '2',
         title: 'Messages',
+        to: 'messages',
     },
     {
         id: '3',
         title: 'Settings',
+        to: 'settings',
     },
     {
         id: '4',
         title: 'Login/Registration',
+        to: 'auth',
     },
 ]
 
@@ -23,14 +28,22 @@ const Header = ({color}) => {
     return (
         <header className='header' style={{backgroundColor: color}}>
             <span>Logo</span>
-                <nav>
-                    <ul className='nav'>
-                        {
-                            navigation.map(({ id, title }) => (
-                                <li key={id} className='navLi'>{title}</li>
-                            ))
-                        }
-                    </ul>
+            <nav>
+                <ul className='nav'>
+                    {
+                        navigation.map(({id, title, to}) => (
+                            <NavLink
+                                to={to}
+                                key={id}
+                                className={({isActive}) => {
+                                    console.log('isActive', isActive)
+                                    return isActive ? 'active-nav-li' : 'nav-li'
+                                }}
+                            >{title}
+                            </NavLink>
+                        ))
+                    }
+                </ul>
             </nav>
         </header>
     )

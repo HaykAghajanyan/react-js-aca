@@ -2,9 +2,17 @@ import {useCallback, useEffect, useState} from "react";
 
 import AreaInput from "../../components/AreaInput";
 import Post from "../../components/Post";
+import {useLocation, useParams, Outlet} from "react-router-dom";
 
 const Messages = () => {
     const [messages, setMessages] = useState([])
+
+    const location = useLocation();
+    const {id} = useParams();
+
+    console.log('location', location)
+    console.log('id', id)
+
 
     useEffect(() => {
         fetch('http://localhost:3000/messages')
@@ -20,6 +28,7 @@ const Messages = () => {
     return (
         <section className='messages-container'>
             <AreaInput addMessage={addMessage}/>
+            <Outlet />
             <div>
                 {
                     messages.map(message => (

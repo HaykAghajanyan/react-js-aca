@@ -61,8 +61,16 @@ code {
     width: 40vw;
 }
 
-.navLi {
+.nav-li {
     list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.active-nav-li {
+    list-style: none;
+    text-decoration: none;
+    color: white;
 }
 
 /* AreaInput */
