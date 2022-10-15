@@ -32,7 +32,7 @@ code {
 .container {
     display: flex;
     justify-content: space-around;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .circle-item {
@@ -125,9 +125,41 @@ code {
     margin-bottom: 10px;
 }
 
+/* LOGIN - REGISTER */
 
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 
+.auth-input {
+    min-width: 15rem;
+    border-radius: 5px;
+    padding: 10px;
+    border: .5px #cccccc solid;
+}
 
+.auth-submit {
+    background-color: rgba(81,163,210,0.8);
+    width: 7rem;
+    border: .5px white solid;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0 auto;
+}
 
+.auth-submit:active {
+    border: .5px #ccc solid;
+    transition: .3s;
+}
 
+.auth-navigate {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
 
+.auth-notification {
+    font-weight: bold;
+}

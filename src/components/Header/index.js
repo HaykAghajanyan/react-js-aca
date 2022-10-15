@@ -8,7 +8,7 @@ const navigation = [
     {
         id: '1',
         title: 'Home',
-        to: '/',
+        to: 'circles',
     },
     {
         id: '2',
@@ -27,7 +27,7 @@ const navigation = [
     },
 ]
 
-const Header = ({color}) => {
+const Header = ({color = 'brown'}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {

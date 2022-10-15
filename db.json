@@ -114,5 +114,11 @@
       "author": "Karen",
       "date": "13.10.2022"
     }
+  ],
+  "users": [
+    {
+      "userName": "Hayk",
+      "password": "111"
+    }
   ]
 }

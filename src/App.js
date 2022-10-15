@@ -1,33 +1,7 @@
-import {lazy, useCallback, useState} from "react";
-import {useRoutes, Navigate} from 'react-router-dom'
+import {Outlet, useNavigate} from 'react-router-dom';
 
 import Header from "./components/Header";
-
-const Messages = lazy(() => import('./pages/Messages'))
-const Circles = lazy(() => import('./pages/Circles'))
-
-const circles = [
-    {
-        id: '1',
-        color: 'red',
-    },
-    {
-        id: '2',
-        color: 'brown',
-    },
-    {
-        id: '3',
-        color: 'green',
-    },
-    {
-        id: '4',
-        color: 'yellow',
-    },
-    {
-        id: '5',
-        color: 'blue',
-    },
-]
+import {useEffect} from "react";
 
 // hooks
 // forceUpdate
@@ -37,50 +11,21 @@ const circles = [
 // chunk
 
 const App = () => {
-    const [activeCircle, setActiveCircle] = useState(null)
+    const navigate = useNavigate()
 
-    const changeColor = useCallback((id) => {
-        if (activeCircle === id) {
-            setActiveCircle(null)
-        } else {
-            setActiveCircle(id)
-        }
-    }, [activeCircle])
-
-    const routes = useRoutes([
-        {
-            path: '',
-            element: <Circles
-                circles={circles}
-                changeColor={changeColor}
-                setActiveCircle={setActiveCircle}
-            />,
-        },
-        {
-            path: 'messages',
-            element: <Messages/>,
-            children: [
-                {
-                    path: ':id',
-                    element: <div>MESSAGE</div>
-                }
-            ]
-        },
-        {
-            path: '*',
-            element: <Navigate to='' />,
-        }
-    ])
+    useEffect(() => {
+        navigate('circles');
+    }, [])
 
     return (
         <>
-            <Header color={circles[activeCircle - 1]?.color}/>
+            <Header />
             <div className='container'>
-                {routes}
+                <Outlet/>
             </div>
         </>
     )
 }
-
+// color={CIRCLES[activeCircle - 1]?.color}
 
 export default App;
