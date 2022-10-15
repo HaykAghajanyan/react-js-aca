@@ -10,9 +10,6 @@ const Messages = () => {
     const location = useLocation();
     const {id} = useParams();
 
-    console.log('location', location)
-    console.log('id', id)
-
 
     useEffect(() => {
         fetch('http://localhost:3000/messages')

@@ -2,7 +2,6 @@ import {memo} from 'react'
 import PropTypes from "prop-types";
 
 const Circle = ({id, color, activeCircle, changeColor}) => {
-    console.log('rerendered');
     return (
         <div
             id={id}

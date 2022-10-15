@@ -1,4 +1,9 @@
+import {useSelector} from "react-redux";
+import {colorSelector} from "../../redux/slices/appSlice";
+
 const Post = ({ author, date, text }) => {
+    const selectedColor = useSelector(colorSelector)
+
     return (
         <div className='message-item'>
             <div className='message-item-header'>
@@ -6,7 +11,7 @@ const Post = ({ author, date, text }) => {
                 <p>Sent by: {author}</p>
                 <p>{date}</p>
             </div>
-            <div>{text}</div>
+            <div style={{color: selectedColor}}>{text}</div>
         </div>
     )
 }

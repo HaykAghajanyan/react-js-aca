@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 import {NavLink} from "react-router-dom";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {selectColor} from "../../redux/slices/appSlice";
 
 const navigation = [
     {
@@ -25,6 +28,12 @@ const navigation = [
 ]
 
 const Header = ({color}) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(selectColor(color))
+    }, [color])
+
     return (
         <header className='header' style={{backgroundColor: color}}>
             <span>Logo</span>
@@ -36,7 +45,6 @@ const Header = ({color}) => {
                                 to={to}
                                 key={id}
                                 className={({isActive}) => {
-                                    console.log('isActive', isActive)
                                     return isActive ? 'active-nav-li' : 'nav-li'
                                 }}
                             >{title}
