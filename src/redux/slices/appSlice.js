@@ -20,7 +20,7 @@ const appSlice = createSlice({
         authRouteChange: (state, {payload}) => {
             state.authRoute = payload
         }
-    },
+    }
 })
 
 export const {selectColor, changeUser, authRouteChange} = appSlice.actions;

@@ -1,12 +1,8 @@
 import {LOGIN} from "../../constants";
 
 const Registration = ({navigateTo}) => {
-
     const handleRegistration = () => {
-        const userInfoObj = {
-            // userName,
-            // password,
-        }
+        const userInfoObj = {}
 
         fetch('http://localhost:3000/users', {
             method: 'POST',
@@ -15,6 +11,8 @@ const Registration = ({navigateTo}) => {
                 'Content-Type': 'application/json',
             },
         })
+            .then(res => res.json())
+            .then(res => console.log('res', res))
     }
 
     return (

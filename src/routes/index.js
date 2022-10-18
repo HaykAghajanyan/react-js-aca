@@ -2,6 +2,7 @@ import {lazy} from "react";
 import {Navigate} from "react-router-dom";
 
 import App from "../App";
+import Settings from "../pages/Settings";
 
 const Circles = lazy(() => import("../pages/Circles"))
 const Messages = lazy(() => import("../pages/Messages"))
@@ -25,6 +26,10 @@ const routes = [
                         element: <div>MESSAGE</div>
                     }
                 ]
+            },
+            {
+              path: 'settings',
+              element: <Settings />
             },
             {
               path: 'auth',
