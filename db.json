@@ -115,10 +115,35 @@
       "date": "13.10.2022"
     },
     {
+<<<<<<< HEAD
       "id": "b23957",
       "text": "hh",
       "author": "Karen",
       "date": "17.10.2022"
+=======
+      "id": "7d37f6",
+      "text": "Hellooooooo",
+      "author": "Karen",
+      "date": "18.10.2022"
+    },
+    {
+      "id": "ae33f6",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
+    },
+    {
+      "id": "9ae1b9",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
+    },
+    {
+      "id": "7d3ed3",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
+>>>>>>> ff303a932681f472686f1f4aea35e3d7b11da511
     }
   ],
   "users": [

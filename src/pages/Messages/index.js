@@ -1,31 +1,35 @@
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+
 
 import AreaInput from "../../components/AreaInput";
 import Post from "../../components/Post";
-import {useLocation, useParams, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
+import {getMessages} from "../../redux/thunks/messagesThunk";
+import {
+    messagesErrorSelector,
+    messagesLoadingSelector,
+    messagesSelector,
+    setMessage
+} from "../../redux/slices/messagesSlice";
 
 const Messages = () => {
-    const [messages, setMessages] = useState([])
-
-    const location = useLocation();
-    const {id} = useParams();
-
+    const dispatch = useDispatch()
+    const messages = useSelector(messagesSelector)
 
     useEffect(() => {
-        fetch('http://localhost:3000/messages')
-            .then(res => res.json())
-            .then(res => setMessages(res))
-            .catch(err => console.log(err))
+        dispatch(getMessages())
     }, [])
 
     const addMessage = useCallback((newMessage) => {
-        setMessages([newMessage, ...messages])
+        console.log('newMessage', newMessage)
+        dispatch(setMessage(newMessage))
     }, [messages])
 
     return (
         <section className='messages-container'>
             <AreaInput addMessage={addMessage}/>
-            <Outlet />
+            <Outlet/>
             <div>
                 {
                     messages.map(message => (
