@@ -22,6 +22,11 @@ const navigation = [
     },
     {
         id: '4',
+        title: 'Cats',
+        to: 'cats',
+    },
+    {
+        id: '5',
         title: 'Login/Registration',
         to: 'auth',
     },

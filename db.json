@@ -119,6 +119,24 @@
       "text": "Hellooooooo",
       "author": "Karen",
       "date": "18.10.2022"
+    },
+    {
+      "id": "ae33f6",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
+    },
+    {
+      "id": "9ae1b9",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
+    },
+    {
+      "id": "7d3ed3",
+      "text": "first post with axios",
+      "author": "Karen",
+      "date": "20.10.2022"
     }
   ],
   "users": [

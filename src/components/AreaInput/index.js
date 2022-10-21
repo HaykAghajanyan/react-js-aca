@@ -1,5 +1,6 @@
 import {useState, memo} from "react";
 import dayjs from "dayjs";
+import instance from "../../api/axios";
 
 const AreaInput = ({ addMessage }) => {
     const [areaValue, setAreaValue] = useState('')
@@ -24,16 +25,9 @@ const AreaInput = ({ addMessage }) => {
             date: dayjs(new Date()).format('DD.MM.YYYY')
         }
 
-        fetch('http://localhost:3000/messages', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(obj)
-        })
-            .then(res => res.json())
+        instance.post('messages', obj)
             .then(res => {
-                addMessage(res)
+                addMessage(res.data)
             })
             .catch(err => console.log(err))
     }

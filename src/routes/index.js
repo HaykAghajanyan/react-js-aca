@@ -2,9 +2,10 @@ import {lazy} from "react";
 import {Navigate} from "react-router-dom";
 
 import App from "../App";
-import Settings from "../pages/Settings";
 
+const Cats = lazy(() => import("../pages/Cats"))
 const Circles = lazy(() => import("../pages/Circles"))
+const Settings = lazy(() => import("../pages/Settings"))
 const Messages = lazy(() => import("../pages/Messages"))
 const Authentication = lazy(() => import("../pages/Authentication"))
 
@@ -30,6 +31,10 @@ const routes = [
             {
               path: 'settings',
               element: <Settings />
+            },
+            {
+              path: 'cats',
+              element: <Cats />
             },
             {
               path: 'auth',

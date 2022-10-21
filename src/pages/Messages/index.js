@@ -22,6 +22,7 @@ const Messages = () => {
     }, [])
 
     const addMessage = useCallback((newMessage) => {
+        console.log('newMessage', newMessage)
         dispatch(setMessage(newMessage))
     }, [messages])
 
