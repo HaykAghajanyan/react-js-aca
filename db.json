@@ -22,7 +22,7 @@
       "id": "5",
       "author": "Hayk",
       "date": "21/03/2020",
-      "text": "Yesterday I with my application, you can check it out on my page, tomorrow"
+      "text": "Edited"
     },
     {
       "id": "6",
@@ -41,12 +41,6 @@
       "author": "Hayk",
       "date": "21/03/2020",
       "text": "So, what is up with that job? Don`t reply, I know"
-    },
-    {
-      "author": "Alex",
-      "date": "07.05.2022",
-      "text": "Hello, 3g-aca!",
-      "id": "9INgTru"
     },
     {
       "author": "Alex",
@@ -137,12 +131,34 @@
       "text": "first post with axios",
       "author": "Karen",
       "date": "20.10.2022"
+    },
+    {
+      "id": "51b104",
+      "text": "Has",
+      "author": "Karen",
+      "date": "22.10.2022"
+    },
+    {
+      "id": "2e815e",
+      "text": "Haven`t",
+      "author": "Karen",
+      "date": "22.10.2022"
+    },
+    {
+      "id": "5ed632",
+      "text": "Test one\n",
+      "author": "Karen",
+      "date": "22.10.2022"
     }
   ],
   "users": [
     {
       "userName": "Hayk",
       "password": "111"
+    },
+    {
+      "userName": "Alex",
+      "password": "222"
     }
   ]
 }

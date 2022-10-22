@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {LOGIN} from "../../constants";
 
 const initialState = {
-    user: {},
+    user: JSON.parse(localStorage.getItem('user')) || {},
     authRoute: LOGIN,
     selectedColor: '',
 }

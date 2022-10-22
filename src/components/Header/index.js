@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import {NavLink} from "react-router-dom";
 import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {selectColor} from "../../redux/slices/appSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {changeUser, selectColor, userSelector} from "../../redux/slices/appSlice";
 
 const navigation = [
     {
@@ -25,19 +25,19 @@ const navigation = [
         title: 'Cats',
         to: 'cats',
     },
-    {
-        id: '5',
-        title: 'Login/Registration',
-        to: 'auth',
-    },
 ]
 
 const Header = ({color = 'brown'}) => {
     const dispatch = useDispatch()
+    const user = useSelector(userSelector)
 
     useEffect(() => {
         dispatch(selectColor(color))
     }, [color])
+
+    const logout = () => {
+        dispatch(changeUser({}))
+    }
 
     return (
         <header className='header' style={{backgroundColor: color}}>
@@ -49,12 +49,27 @@ const Header = ({color = 'brown'}) => {
                             <NavLink
                                 to={to}
                                 key={id}
-                                className={({isActive}) => {
-                                    return isActive ? 'active-nav-li' : 'nav-li'
-                                }}
+                                className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
                             >{title}
                             </NavLink>
                         ))
+                    }
+                    {
+                        !user.userName ?
+                            <NavLink
+                                to='auth'
+                                className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
+                            >
+                                Login/Registration
+                            </NavLink>
+                            :
+                            <NavLink
+                                to='auth'
+                                onClick={logout}
+                                className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
+                            >
+                                Logout
+                            </NavLink>
                     }
                 </ul>
             </nav>
@@ -62,38 +77,6 @@ const Header = ({color = 'brown'}) => {
     )
 }
 
-// class Header1 extends Component {
-//     componentDidMount() {
-//         document.addEventListener('click', this.clickHandler)
-//     }
-//
-//     componentWillUnmount() {
-//         console.log(5, 'componentWillUnmount')
-//
-//         document.removeEventListener('click', this.clickHandler)
-//     }
-//
-//     clickHandler = e => {
-//         if(e.target.localName === 'header') {
-//             console.log('you just clicked on the header!')
-//         }
-//     }
-//
-//     render() {
-//         return (
-//             <header className='header' style={{backgroundColor: this.props.color}}>
-//                 <span>Logo</span>
-//                 <nav>
-//                     <ul className='nav'>
-//                         <li className='navLi'>Home</li>
-//                         <li className='navLi'>Settings</li>
-//                         <li className='navLi'>Login/Registration</li>
-//                     </ul>
-//                 </nav>
-//             </header>
-//         )
-//     }
-// }
 
 Header.propTypes = {
     color: PropTypes.string.isRequired
