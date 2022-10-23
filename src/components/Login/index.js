@@ -21,6 +21,7 @@ const Login = ({navigateTo}) => {
                 if(!user) {
                     setError('Wrong username or password!')
                 } else {
+                    localStorage.setItem('user', JSON.stringify(user))
                     dispatch(changeUser(user))
                     navigate('/circles')
                 }

@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {LOGIN} from "../../constants";
 
 const initialState = {
-    user: {},
+    user: JSON.parse(localStorage.getItem('user')) || {},
     authRoute: LOGIN,
     selectedColor: '',
 }
@@ -20,7 +20,7 @@ const appSlice = createSlice({
         authRouteChange: (state, {payload}) => {
             state.authRoute = payload
         }
-    },
+    }
 })
 
 export const {selectColor, changeUser, authRouteChange} = appSlice.actions;
