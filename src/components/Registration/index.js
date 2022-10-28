@@ -1,48 +1,66 @@
+import { useState } from "react";
+
 import {LOGIN} from "../../constants";
+import instance from "../../api/axios";
 
 const Registration = ({navigateTo}) => {
-    const handleRegistration = () => {
-        const userInfoObj = {}
+	
+	const [email, setEmail] = useState("")
+	const [error, setError] = useState('')
+	const [userName, setUserName] = useState("")
+	const [password, setPassword] = useState("")
 
-        fetch('http://localhost:3000/users', {
-            method: 'POST',
-            body: JSON.stringify(userInfoObj),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(res => res.json())
-            .then(res => console.log('res', res))
-    }
+	const handleRegistration = () => {
+		const userInfoObj = {
+			email,
+			userName,
+			password,
+		}
 
-    return (
-        <div className='auth-container'>
-            <h3>REGISTRATION</h3>
-            <input
-                type="text"
-                className='auth-input'
-                placeholder='username'
-            />
-            <input
-                type="email"
-                className='auth-input'
-                placeholder='email'
-            />
-            <input
-                type="text"
-                className='auth-input'
-                placeholder='password'
-            />
-            <button className='auth-submit'>Register</button>
-            <div className='auth-navigate'>
-                <p className='auth-notification'>Already have an account?</p>
-                <button
-                    className='auth-submit'
-                    onClick={() => navigateTo(LOGIN)}
-                >Sign in</button>
-            </div>
-        </div>
-    )
+		instance.post("users", userInfoObj)
+			.then(res=> res.data)
+			console.log(userInfoObj, "usersInfoObj");
+	}
+
+	return (
+		<div className='auth-container'>
+			<h3>REGISTRATION</h3>
+			<input
+				type="text"
+				value={userName}
+				className='auth-input'
+				placeholder='username'
+				onChange={e => setUserName(e.target.value)}
+			/>
+			<input
+				type="email"
+				value={email}
+				className='auth-input'
+				placeholder='email'
+				onChange={e => setEmail(e.target.value)}
+			/>
+			<input
+				type="password"
+				value={password}
+				className='auth-input'
+				placeholder='password'
+				onChange={e => setPassword(e.target.value)}
+			/>
+			<button 
+				className='auth-submit'
+				onClick={handleRegistration}
+			>
+				Register
+			</button>
+			<div className='auth-navigate'>
+				<p className='auth-notification'>Already have an account?</p>
+				<button
+					className='auth-submit'
+					onClick={() => navigateTo(LOGIN)}
+				>Sign in</button>
+			</div>
+		</div>
+	)
 }
 
 export default Registration;
