@@ -1,8 +1,12 @@
 import {useState, memo} from "react";
 import dayjs from "dayjs";
 import instance from "../../api/axios";
+import {useSelector} from "react-redux";
+import {userSelector} from "../../redux/slices/appSlice";
 
 const AreaInput = ({ addMessage }) => {
+    const { userName } = useSelector(userSelector)
+
     const [areaValue, setAreaValue] = useState('')
 
     const handleAreaChange = e => {
@@ -21,7 +25,7 @@ const AreaInput = ({ addMessage }) => {
         const obj = {
             id: `${hash()}${hash()}`,
             text: areaValue,
-            author: 'Karen',
+            author: userName,
             date: dayjs(new Date()).format('DD.MM.YYYY')
         }
 

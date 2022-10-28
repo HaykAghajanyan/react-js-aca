@@ -13,6 +13,9 @@ const messagesSlice = createSlice({
     reducers: {
         setMessage: (state, {payload}) => {
             state.messages.unshift(payload)
+        },
+        deleteMessage: (state, {payload}) => {
+            state.messages = state.messages.filter(item => item.id !== payload)
         }
     },
     extraReducers: builder => {
@@ -20,7 +23,7 @@ const messagesSlice = createSlice({
     }
 })
 
-export const {setMessage} = messagesSlice.actions
+export const {setMessage, deleteMessage} = messagesSlice.actions
 
 export const messagesSelector = state => state.messages.messages
 export const messagesLoadingSelector = state => state.messages.loading

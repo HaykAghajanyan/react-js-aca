@@ -1,7 +1,7 @@
+import {useEffect} from "react";
 import {Outlet, useNavigate} from 'react-router-dom';
 
 import Header from "./components/Header";
-import {useEffect} from "react";
 
 // hooks
 // forceUpdate
@@ -26,6 +26,5 @@ const App = () => {
         </>
     )
 }
-// color={CIRCLES[activeCircle - 1]?.color}
 
 export default App;
