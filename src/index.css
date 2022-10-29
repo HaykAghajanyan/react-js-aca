@@ -241,6 +241,24 @@ code {
     font-weight: bold;
 }
 
+/* REGISTER ERRORS */
+
+.error-field {
+    color: red;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: -2rem;
+
+}
+
+.error-input {
+    min-width: 15rem;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px red solid;
+}
+
 /* PROFILE */
 
 .profile-container {
@@ -266,3 +284,6 @@ code {
     margin: 1rem auto;
     padding: 0.5rem;
 }
+
+
+
