@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {LOGIN} from "../../constants";
 
@@ -7,33 +7,21 @@ const Registration = ({navigateTo}) => {
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
 
-    const [emptyName, setEmptyName] = useState(false)
-    const [emptyEmail, setEmptyEmail] = useState(false)
-    const [emptyPassword, setEmptyPassword] = useState(false)
+    const [error, setError] = useState(false)
 
     const navigate = useNavigate()
 
     // creating values--------------------------------
 
-    const signUp = () => {
-
-        if(userName){
-            setEmptyName(false)
+    useEffect(() => {
+        if(userName === '' || userEmail === ''|| userPassword === '') {
+            setError(true)
         } else {
-            setEmptyName(true)
-        }   
-
-        if(userEmail){
-            setEmptyEmail(false)
-        } else {
-            setEmptyEmail(true)
+            setError(false)
         }
+    }, [userName, userEmail, userPassword])
 
-        if(userPassword){
-            setEmptyPassword(false)
-        } else {
-            setEmptyPassword(true)
-
+    const signUp = () => {
         const userInfoObj = {
             id: Math.round(Math.random() * 1000000000),
             name: userName,
@@ -41,20 +29,24 @@ const Registration = ({navigateTo}) => {
             password: userPassword
         }
 
-            fetch('http://localhost:3000/users', {
-                method: 'POST',
-                body: JSON.stringify(userInfoObj),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(res => res.json())
-                .then(res => console.log('res', res))
-            
+           if(!error){
+                console.log('err', error)
 
+           } else{
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    body: JSON.stringify(userInfoObj),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                    .then(res => res.json())
+                    .then(res => console.log('res', res))
+                console.log('err', error)
+           }
                 //navigate('Signin')
             
-        } 
+        
     }
 
     // sign up-------------------------------------
@@ -66,21 +58,21 @@ const Registration = ({navigateTo}) => {
             <input
                 type="text"
                 className='auth-input'
-                style={emptyName ? {border: '1.5px red solid'}:null}
+                style={error && !userName ? {border: '1.5px red solid'}:null}
                 placeholder='username'
                 onChange={(e) => setUserName(e.target.value)}
             />
             <input
                 type="email"
                 className='auth-input'
-                style={emptyEmail ? {border: '1.5px red solid'}:null}
+                style={error && !userEmail ? {border: '1.5px red solid'}:null}
                 placeholder='email'
                 onChange={(e) => setUserEmail(e.target.value)}
             />
             <input
                 type="text"
                 className='auth-input'
-                style={emptyPassword ? {border: '1.5px red solid'}:null}
+                style={error && !userPassword ? {border: '1.5px red solid'}:null}
                 placeholder='password'
                 onChange={(e) => setUserPassword(e.target.value)}
             />
