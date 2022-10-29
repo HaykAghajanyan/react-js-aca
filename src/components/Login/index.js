@@ -23,7 +23,7 @@ const Login = ({navigateTo}) => {
                 } else {
                     localStorage.setItem('user', JSON.stringify(user))
                     dispatch(changeUser(user))
-                    navigate('/circles')
+                    navigate('/profile')
                 }
             })
     }
