@@ -5,6 +5,7 @@ import App from "../App";
 
 const Cats = lazy(() => import("../pages/Cats"))
 const Circles = lazy(() => import("../pages/Circles"))
+const Profile = lazy(() => import("../pages/Profile"))
 const Settings = lazy(() => import("../pages/Settings"))
 const Messages = lazy(() => import("../pages/Messages"))
 const Authentication = lazy(() => import("../pages/Authentication"))
@@ -39,6 +40,10 @@ const routes = [
             {
               path: 'auth',
               element: <Authentication />
+            },
+            {
+              path: 'profile',
+              element: <Profile />
             },
             {
                 path: '*',

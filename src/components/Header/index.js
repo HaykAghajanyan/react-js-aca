@@ -29,7 +29,7 @@ const navigation = [
 
 const Header = ({color = 'brown'}) => {
     const dispatch = useDispatch()
-    const user = useSelector(userSelector)
+    const {userName} = useSelector(userSelector)
 
     useEffect(() => {
         dispatch(selectColor(color))
@@ -37,6 +37,7 @@ const Header = ({color = 'brown'}) => {
 
     const logout = () => {
         dispatch(changeUser({}))
+        localStorage.removeItem('user')
     }
 
     return (
@@ -55,7 +56,7 @@ const Header = ({color = 'brown'}) => {
                         ))
                     }
                     {
-                        !user.userName ?
+                        !userName ?
                             <NavLink
                                 to='auth'
                                 className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
@@ -63,13 +64,22 @@ const Header = ({color = 'brown'}) => {
                                 Login/Registration
                             </NavLink>
                             :
-                            <NavLink
-                                to='auth'
-                                onClick={logout}
-                                className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
-                            >
-                                Logout
-                            </NavLink>
+                            <>
+                                <NavLink
+                                    to='profile'
+                                    className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
+                                >
+                                    Profile
+                                </NavLink>
+                                <NavLink
+                                    to='auth'
+                                    onClick={logout}
+                                    className={({isActive}) => isActive ? 'active-nav-li' : 'nav-li'}
+                                >
+                                    Logout
+                                </NavLink>
+                            </>
+
                     }
                 </ul>
             </nav>

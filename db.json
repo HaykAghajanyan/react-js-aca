@@ -4,37 +4,101 @@
       "id": "2",
       "author": "Karen",
       "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?"
+      "text": "Have you ever thought about living in another country?",
+      "comments": [
+        {
+          "id": "628bdc",
+          "text": "asdasd",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "4a4ed5",
+          "text": "test",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "6f4c00",
+          "text": "First comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "3",
       "author": "Karen",
       "date": "13/09/2021",
-      "text": "Hey man, when can you come to hang over? I`ll be free today"
+      "text": "Hey man, when can you come to hang over? I`ll be free today",
+      "comments": [
+        {
+          "id": "0a988a",
+          "text": "Second comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "4",
       "author": "Alex",
       "date": "13/09/2021",
-      "text": "Hi, maybe I`ll be free after work today. I`ll call you"
-    },
-    {
-      "id": "5",
-      "author": "Hayk",
-      "date": "21/03/2020",
-      "text": "Edited"
+      "text": "Hi, maybe I`ll be free after work today. I`ll call you",
+      "comments": [
+        {
+          "id": "6ac148",
+          "text": "Another comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "f6c5f5",
+          "text": "Third comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "6",
       "author": "Karen",
       "date": "1/01/2022",
-      "text": "Merry Christmas and a happy New Year"
+      "text": "Merry Christmas and a happy New Year",
+      "comments": [
+        {
+          "id": "8c3576",
+          "text": "post",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "6a2233",
+          "text": "comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "7",
       "author": "Alex",
       "date": "17/05/2021",
-      "text": "My car is in service center now, I can`t visit you"
+      "text": "My car is in service center now, I can`t visit you",
+      "comments": [
+        {
+          "id": "561506",
+          "text": "senc",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "b25ba5",
+          "text": "Hello",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "8",
@@ -159,6 +223,11 @@
     {
       "userName": "Alex",
       "password": "222"
+    },
+    {
+      "id": "3",
+      "userName": "Armen",
+      "password": "333"
     }
   ]
 }
