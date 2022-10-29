@@ -233,3 +233,8 @@ code {
 .auth-notification {
     font-weight: bold;
 }
+
+
+.empty-input{
+    border: 1.5px red solid;
+  }
