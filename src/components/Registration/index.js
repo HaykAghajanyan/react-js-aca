@@ -8,13 +8,14 @@ const Registration = ({navigateTo}) => {
     const [userPassword, setUserPassword] = useState('')
 
     const [error, setError] = useState(false)
+    const [emptyInput, setEmptyInput] = useState(false)
 
     const navigate = useNavigate()
 
     // creating values--------------------------------
 
     useEffect(() => {
-        if(userName === '' || userEmail === ''|| userPassword === '') {
+        if(userName === '' || userEmail === '' || userPassword === '') {
             setError(true)
         } else {
             setError(false)
@@ -30,9 +31,6 @@ const Registration = ({navigateTo}) => {
         }
 
            if(!error){
-                console.log('err', error)
-
-           } else{
                 fetch('http://localhost:3000/users', {
                     method: 'POST',
                     body: JSON.stringify(userInfoObj),
@@ -42,9 +40,12 @@ const Registration = ({navigateTo}) => {
                 })
                     .then(res => res.json())
                     .then(res => console.log('res', res))
-                console.log('err', error)
+                    navigate('Signin')
+           } else{
+                setEmptyInput(true)
+                console.log('err', error, 'input', emptyInput)
            }
-                //navigate('Signin')
+                
             
         
     }
@@ -58,21 +59,21 @@ const Registration = ({navigateTo}) => {
             <input
                 type="text"
                 className='auth-input'
-                style={error && !userName ? {border: '1.5px red solid'}:null}
+                style={emptyInput && userName == false ? {border: '1.5px red solid'}:null}
                 placeholder='username'
                 onChange={(e) => setUserName(e.target.value)}
             />
             <input
                 type="email"
                 className='auth-input'
-                style={error && !userEmail ? {border: '1.5px red solid'}:null}
+                style={emptyInput && userEmail == false ? {border: '1.5px red solid'}:null}
                 placeholder='email'
                 onChange={(e) => setUserEmail(e.target.value)}
             />
             <input
                 type="text"
                 className='auth-input'
-                style={error && !userPassword ? {border: '1.5px red solid'}:null}
+                style={emptyInput && userPassword == false ? {border: '1.5px red solid'}:null}
                 placeholder='password'
                 onChange={(e) => setUserPassword(e.target.value)}
             />
