@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
+import instance from "../../api/axios";
 import {userSelector} from "../../redux/slices/appSlice";
 
 const inputs = [
@@ -66,7 +67,7 @@ const Profile = () => {
     }
 
     const saveChanges = () => {
-
+       
     }
 
     return (
@@ -95,6 +96,7 @@ const Profile = () => {
             </div>
             <div className='profile-section row'>
                 <button onClick={discardChanges} className='btn'>Discard</button>
+                {console.log("discardChanges", discardChanges)}
                 <button onClick={saveChanges} className='btn'>Save changes</button>
             </div>
         </div>
