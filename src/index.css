@@ -241,6 +241,12 @@ code {
     font-weight: bold;
 }
 
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 /* PROFILE */
 
 .profile-container {
