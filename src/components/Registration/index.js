@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {LOGIN} from "../../constants";
 import instance from "../../api/axios";
@@ -6,20 +6,31 @@ import instance from "../../api/axios";
 const Registration = ({navigateTo}) => {
 	
 	const [email, setEmail] = useState("")
-	const [error, setError] = useState('')
+	const [error, setError] = useState("")
 	const [userName, setUserName] = useState("")
 	const [password, setPassword] = useState("")
 
+	useEffect(() => {
+		
+		(email && userName && password) ? setError("") : setError(true);
+
+	}, [email, userName, password])
+
 	const handleRegistration = () => {
 		const userInfoObj = {
+			id: Math.round(Math.random() * 1000000),
 			email,
 			userName,
 			password,
 		}
-
-		instance.post("users", userInfoObj)
-			.then(res=> res.data)
-			console.log(userInfoObj, "usersInfoObj");
+		if(!error) {
+			instance.post("users", userInfoObj)
+			.then(res => res.data)
+		}
+		else {
+			setError("Inputs are Required!!!")
+		}
+		
 	}
 
 	return (
@@ -52,6 +63,7 @@ const Registration = ({navigateTo}) => {
 			>
 				Register
 			</button>
+			{error && <p>{error}</p>}
 			<div className='auth-navigate'>
 				<p className='auth-notification'>Already have an account?</p>
 				<button
