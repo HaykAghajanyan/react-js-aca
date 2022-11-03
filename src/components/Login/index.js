@@ -21,8 +21,9 @@ const Login = ({navigateTo}) => {
 
     const [error, setError] = useState('')
 
-    const handleLogin = (data) => {
-        console.log('data', data)
+    const handleLogin = ({username, password}) => {
+
+        // console.log('data', data)
         // fetch('http://localhost:3000/users')
         //     .then(res => res.json())
         //     .then(res => {
@@ -44,6 +45,9 @@ const Login = ({navigateTo}) => {
     return (
         <div className='auth-container'>
             <h3>LOGIN</h3>
+            {
+                new Array(18).fill(1).map(item => <div>{item}</div>)
+            }
             <form onSubmit={handleSubmit(handleLogin)} className='auth-form'>
                 <CustomInput
                     required

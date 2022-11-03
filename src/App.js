@@ -12,25 +12,25 @@ import Header from "./components/Header";
 
 const App = () => {
     const navigate = useNavigate()
-    const [a, setA] = useState(true)
+    // const [a, setA] = useState(true)
 
     useEffect(() => {
         navigate('circles');
     }, [])
 
-    useEffect(() => {
-        return () => {
-            console.log('44')
-        }
-    }, [a])
+    // useEffect(() => {
+    //     return () => {
+    //         console.log('44')
+    //     }
+    // }, [a])
 
     return (
         <>
-            {/*<Header />*/}
-            {/*<div className='container'>*/}
-            {/*    <Outlet/>*/}
-            {/*</div>*/}
-            <button onClick={() => setA(prev => !prev)}>click me</button>
+            <Header />
+            <div className='container'>
+                <Outlet/>
+            </div>
+            {/*<button onClick={() => setA(prev => !prev)}>click me</button>*/}
         </>
     )
 }
