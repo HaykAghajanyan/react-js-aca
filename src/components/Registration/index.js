@@ -1,7 +1,11 @@
-import {LOGIN} from "../../constants";
+import {LOGIN, REGISTRATION} from "../../constants";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import instance from "../../api/axios";
 import { queryAllByAttribute } from "@testing-library/react";
+import Profile from "../../pages/Profile";
+import Login from "../Login";
+
 
 
 const Registration = ({navigateTo}) => {
@@ -15,58 +19,47 @@ const hash = () => Math.floor((1 + Math.random()) * 0x10000)
     .toString(16)
     .substring(2);
 
-const userInfoObj = {
-    id: hash ,
-    userName :  userName,
-    email: userEmail,
-    password: userPass
+const {register,
+    handleSubmit,
+    formState:{errors}} = useForm();
+
+const obj = {
+   "userName": userName,
+   "userEmail":userEmail,
+    "userPass":userPass
 }
 
-
-
-    const handleRegistration = () => {
-        if(userName.length !== 0 && userPass.length !== 0){
+const onSubmit =() => {instance.post('users/',  {id: hash,...obj})
+         .then(res=> console.log('res', res))}
        
-        instance.post('users/', userInfoObj)
-        .then(res=> console.log('res', res))
-    } else {console.log("eror")}
-    } 
 
-   
-
-    return (
-        <div className='auth-container'>
-            <h3>REGISTRATION</h3>
-            <input
-                type="text"
-                className='auth-input' 
-                placeholder='username'
-                onChange={e => setUserName(e.target.value)}
-                                
-            />
-            <input
-                type="email"
-                className='auth-input'
-                placeholder='email'
-                onChange={e => setUserEmail(e.target.value)}
-            />
-            <input
-                type="text"
-                className='auth-input'
-                placeholder='password'
-                onChange={e => setUserPass(e.target.value)}
-                 
-            />
-            <button className='auth-submit' onClick={handleRegistration}>Register</button>
-            <div className='auth-navigate'>
+   return (
+  <form className='auth-container' onSubmit={handleSubmit(onSubmit)}> 
+    <p>Name: 
+     <input className='auth-input' type={"text"} {...register("userName", {required: true})} onChange={e => setUserName(e.target.value)} />
+     {errors.userName && <p style={{color :"red"}}>Please enter your Name</p>}
+    </p>
+    <p>Email:
+      <input className='auth-input' type={"email"} {...register("userEmail", {required: true})} onChange={e => setUserEmail(e.target.value)} />
+      {errors.userEmail && <p style={{color :"red"}}>Please enter Email.</p>}
+    </p>
+    <p>Password:
+     <input className='auth-input' type={"password"} {...register("userPass", {required: true, minLength: 4})} onChange={e => setUserPass(e.target.value)}/>
+     {errors.userPass && <p style={{color :"red"}}>Please enter Password, min.length is 4</p>}
+    </p>
+    <input className='auth-submit' type="submit" />
+    <div className='auth-navigate'>
                 <p className='auth-notification'>Already have an account?</p>
                 <button
                     className='auth-submit'
-                    onClick={() => navigateTo(LOGIN)}
+                    onClick={() => navigateTo(Profile)}
                 >Sign in</button>
             </div>
-        </div>
-    )
+
+  </form>
+
+        )
 }
 
 export default Registration;
+

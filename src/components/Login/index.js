@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 import {REGISTRATION} from "../../constants";
 import {changeUser} from "../../redux/slices/appSlice";
+import Registration from "../Registration";
 
 const Login = ({navigateTo}) => {
     const navigate = useNavigate()
