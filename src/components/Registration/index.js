@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {LOGIN} from "../../constants";
 import instance from "../../api/axios";
 
 const Registration = ({navigateTo}) => {
 	
+	const navigate = useNavigate()
 	const [email, setEmail] = useState("")
 	const [error, setError] = useState("")
 	const [userName, setUserName] = useState("")
@@ -17,8 +19,9 @@ const Registration = ({navigateTo}) => {
 	}, [email, userName, password])
 
 	const handleRegistration = () => {
+		
 		const userInfoObj = {
-			id: Math.round(Math.random() * 1000000),
+			id: Math.round(Math.random() * 100000),
 			email,
 			userName,
 			password,
@@ -26,6 +29,7 @@ const Registration = ({navigateTo}) => {
 		if(!error) {
 			instance.post("users", userInfoObj)
 			.then(res => res.data)
+			navigate('/circles')
 		}
 		else {
 			setError("Inputs are Required!!!")
