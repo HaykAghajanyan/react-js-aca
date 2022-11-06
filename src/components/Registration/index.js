@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { hash } from "../helpers";
 import {LOGIN} from "../../constants";
 import instance from "../../api/axios";
 
@@ -21,7 +22,7 @@ const Registration = ({navigateTo}) => {
 	const handleRegistration = () => {
 		
 		const userInfoObj = {
-			id: Math.round(Math.random() * 100000),
+			id: `${hash()}${hash()}`,
 			email,
 			userName,
 			password,
