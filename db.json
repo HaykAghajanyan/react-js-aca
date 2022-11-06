@@ -4,37 +4,106 @@
       "id": "2",
       "author": "Karen",
       "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?"
+      "text": "Have you ever thought about living in another country?",
+      "comments": [
+        {
+          "id": "628bdc",
+          "text": "asdasd",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "4a4ed5",
+          "text": "test",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "6f4c00",
+          "text": "First comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "3",
       "author": "Karen",
       "date": "13/09/2021",
-      "text": "Hey man, when can you come to hang over? I`ll be free today"
+      "text": "Hey man, when can you come to hang over? I`ll be free today",
+      "comments": [
+        {
+          "id": "0a988a",
+          "text": "Second comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "4",
       "author": "Alex",
       "date": "13/09/2021",
-      "text": "Hi, maybe I`ll be free after work today. I`ll call you"
-    },
-    {
-      "id": "5",
-      "author": "Hayk",
-      "date": "21/03/2020",
-      "text": "Edited"
+      "text": "Hi, maybe I`ll be free after work today. I`ll call you",
+      "comments": [
+        {
+          "id": "fc2954",
+          "text": "asdasd",
+          "date": "03.11.2022"
+        },
+        {
+          "id": "6ac148",
+          "text": "Another comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "f6c5f5",
+          "text": "Third comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "6",
       "author": "Karen",
       "date": "1/01/2022",
-      "text": "Merry Christmas and a happy New Year"
+      "text": "Merry Christmas and a happy New Year",
+      "comments": [
+        {
+          "id": "8c3576",
+          "text": "post",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "6a2233",
+          "text": "comment",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "7",
       "author": "Alex",
       "date": "17/05/2021",
-      "text": "My car is in service center now, I can`t visit you"
+      "text": "My car is in service center now, I can`t visit you",
+      "comments": [
+        {
+          "id": "561506",
+          "text": "senc",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        },
+        {
+          "id": "b25ba5",
+          "text": "Hello",
+          "author": "Hayk",
+          "date": "29.10.2022"
+        }
+      ]
     },
     {
       "id": "8",
@@ -153,18 +222,100 @@
   ],
   "users": [
     {
+      "id": "1",
       "userName": "Hayk",
-      "password": "111"
+      "password": "111",
+      "likedCats": [
+        "1"
+      ]
     },
     {
+      "id": "2",
       "userName": "Alex",
-      "password": "222"
+      "password": "222",
+      "likedCats": [
+        "1",
+        "2",
+        "3"
+      ]
     },
     {
-      "id": 699,
-      "email": "aram@mail.com",
-      "userName": "Aram",
-      "password": "0011"
+      "id": "3",
+      "userName": "Armen",
+      "password": "333",
+      "likedCats": []
+    }
+  ],
+  "cats": [
+    {
+      "id": "1",
+      "src": "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=350",
+      "alt": "cat",
+      "likes": [
+        "1",
+        "2"
+      ],
+      "description": "Black, short hair slightly reveals a fresh, tense face. Glittering green eyes, set thightly within their sockets, watch vigilantly over the families they've safeguarded for so long.\nA large beard handsomely compliments his hair and cheekbones and leaves a satisfying memory of his fortunate looks.\n\nThis is the face of Cale Falkner, a true spectacle among humans. He stands big among others, despite his light frame.\n\nThere's something charming about him, perhaps it's a feeling of sadness or perhaps it's simply a feeling of anguish. But nonetheless, people tend to ask him about his adventures, while thinking of ways to become his friend."
+    },
+    {
+      "id": "2",
+      "src": "http://www.catster.com/wp-content/uploads/2017/08/Pixiebob-cat.jpg",
+      "alt": "cat",
+      "likes": [
+        "2"
+      ],
+      "description": "Silver, dreadlocks tight in a ponytail reveals a fresh, radiant face. Glittering hazel eyes, set deep within their sockets, watch delightfully over the stronghold they've disassociated with for so long.\nA sword left a mark reaching from the bottom of the right cheek , first running towards thin lips and ending above his right eye leaves an agonizing memory of his fortunate destiny.\n\nThis is the face of Maverick Rosemond, a true challenger among halflings. He stands towering among others, despite his delicate frame.\n\nThere's something misleading about him, perhaps it's his personality or perhaps it's simply his patience. But nonetheless, people tend to flock towards him, while trying to hide from him."
+    },
+    {
+      "id": "3",
+      "src": "https://www.argospetinsurance.co.uk/assets/uploads/2017/12/cat-pet-animal-domestic-104827.jpeg",
+      "alt": "cat",
+      "likes": [
+        "2"
+      ],
+      "description": "Red, short hair gently hangs over a fresh, warm face. Glittering blue eyes, set deep within their sockets, watch cheerfully over the homes they've sought solace in for so long.\nA gunshot left a mark stretching from the right side of the forehead , running towards his right nostril and ending on his left cheekbone leaves a painful burden of lost honor.\n\nThis is the face of Bruno Lockwood, a true guardian among giants. He stands common among others, despite his heavy frame.\n\nThere's something curious about him, perhaps it's his unfortunate past or perhaps it's simply his painful past. But nonetheless, people tend to shower him with gifts, while hoping to one day follow in his footsteps."
+    },
+    {
+      "id": "4",
+      "src": "http://www.petmd.com/sites/default/files/what-does-it-mean-when-cat-wags-tail.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "Black, greasy hair gently hangs over a full, wild face. Bloodshot black eyes, set buried within their sockets, watch vigorously over the river they've nearly died for for so long.\nA scar stretching from the right side of the forehead , running towards the right side of his lips and ending on his right cheekbone leaves a tormenting memory of hidden talents.\n\nThis is the face of Wimax Gearnozzle, a true utopian among goblins. He stands easily among others, despite his thin frame.\n\nThere's something inexplicable about him, perhaps it's his company or perhaps it's simply his warmth. But nonetheless, people tend to ask him about his adventures, while training with him whenever he's available."
+    },
+    {
+      "id": "5",
+      "src": "http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "White, shoulder-length hair tight in a bun reveals a full, warm face. Beady aquamarine eyes, set a-symmetrically within their sockets, watch enthusiastically over the natives they've have been seperated from for so long.\nSeveral moles are spread seductively around her nose and and leaves a heartbreaking memory of her luck in love.\n\nThe is the face of Nafareath Dawnfury, a true ally among wood elves. She stands seductively among others, despite her hefty frame.\n\nThere's something extraordinary about her, perhaps it's her suffering or perhaps it's simply her friendly demeanor. But nonetheless, people tend to hopelessly try to seduce her, while hoping their sons will grow up to be like her."
+    },
+    {
+      "id": "6",
+      "src": "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "Chestnut, shaggy hair neatly coiffured to reveal a round, cheerful face. Squinting amber eyes, set sunken within their sockets, watch delightfully over the wildlife they've disassociated with for so long.\nA tattoo of a small eagle is almost hidden just above the side of her left eye and leaves a painful burden of heroic liberations.\n\nThe is the face of Camille Hanson, a true globetrotter among vampires. She stands alluringly among others, despite her tough frame.\n\nThere's something seductive about her, perhaps it's her sense of justice or perhaps it's simply her bravery. But nonetheless, people tend to worship her, while treating her to a good meal when she's around."
+    },
+    {
+      "id": "7",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "Black, frizzy hair awkwardly hangs over a skinny, cheerful face. Wide gray eyes, set graciously within their sockets, watch merrily over the deserts they've grieved with for so long.\nFreckles are spread neatly around his cheeks and leaves a bittersweet memory of his fortunate upbringing.\n\nThis is the face of Bruce Gedney, a true nobleman among werewolves. He stands tall above others, despite his scraggy frame.\n\nThere's something appealing about him, perhaps it's his painful past or perhaps it's simply his odd companions. But nonetheless, people tend to ask him about his latest victory, while hoping he will one day be their leader."
+    },
+    {
+      "id": "8",
+      "src": "https://www.petmd.com/sites/default/files/petmd-cat-happy-13.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "Golden, sleek hair neatly coiffured to reveal a furrowed, lively face. Wide blue eyes, set graciously within their sockets, watch affectionately over the ancestors they've been isolated from for so long.\nSoft skin graciously compliments his eyes and hair and leaves a delightful memory of his adventurous love life.\n\nThis is the face of Tinlef Dawnthorn, a true adventurer among night elves. He stands graciously among others, despite his tough frame.\n\nThere's something mystifying about him, perhaps it's his fortunate past or perhaps it's simply his kindness. But nonetheless, people tend to stay on his good side, while hoping he will one day be their leader."
+    },
+    {
+      "id": "9",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Cat-eating-prey.jpg/220px-Cat-eating-prey.jpg",
+      "alt": "cat",
+      "likes": [],
+      "description": "Gray, shaggy hair clumsily hangs over a handsome, gloomy face. Smart brown eyes, set rooted within their sockets, watch heartily over the mines they've befriended for so long.\nA gunshot left a mark stretching from the top of the left cheek , running towards his upper lip and ending on his upper lip leaves a stinging memory of former lives.\n\nThis is the face of Gimkink Stormgauge, a true nobleman among gnomes. He stands high among others, despite his muscled frame.\n\nThere's something bizarre about him, perhaps it's his suffering or perhaps it's simply his reputation. But nonetheless, people tend to invite him into their homes, while training with him whenever he's available."
     }
   ]
 }
