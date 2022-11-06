@@ -26,6 +26,7 @@ const appSlice = createSlice({
 export const {selectColor, changeUser, authRouteChange} = appSlice.actions;
 
 export const userSelector = state => state.appSlice.user
+export const userIdSelector = state => state.appSlice.user.id
 export const colorSelector = state => state.appSlice.selectedColor
 export const authRouteSelector = state => state.appSlice.authRoute
 

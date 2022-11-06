@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import instance from "../../api/axios";
 import {useSelector} from "react-redux";
 import {userSelector} from "../../redux/slices/appSlice";
+import {hash} from "../../helpers";
 
 const AreaInput = ({ addMessage }) => {
     const { userName } = useSelector(userSelector)
@@ -16,10 +17,6 @@ const AreaInput = ({ addMessage }) => {
     const clearInput = () => {
         setAreaValue('')
     }
-
-    const hash = () => Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(2);
 
     const postMessage = () => {
         const obj = {

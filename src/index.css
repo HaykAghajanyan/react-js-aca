@@ -27,6 +27,11 @@ code {
     background-color: #ccc;
 }
 
+.small {
+    height: 45px;
+    width: 80px;
+}
+
 /* App */
 
 .container {
@@ -146,10 +151,17 @@ code {
     min-height: 22vh;
 }
 
+.message-item.comment {
+    width: 100%;
+    max-width: 24rem;
+    background-color: #cccccc;
+}
+
 .message-item-area {
     outline: none;
     border: 1px rgba(70,65,140,0.98) solid;
     padding: 15px;
+    max-width: 37rem;
     width: 100%;
     height: 100%;
     border-radius: 7px;
@@ -232,4 +244,90 @@ code {
 
 .auth-notification {
     font-weight: bold;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* PROFILE */
+
+.profile-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section.row {
+    flex-direction: row;
+}
+
+.profile-input {
+    width: 100%;
+    border: 0.5px #ccc solid;
+    border-radius: 5px;
+    outline: none;
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+
+/* CATS */
+
+.cats-container {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* CAT CARD*/
+
+.cat-card-container {
+    width: 25vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cat-card-controls {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.cat-card-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* SINGLE CAT */
+
+.single-cat-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.single-cat-img-container {
+    width: 50vw;
+    height: 50vh;
+    justify-self: center;
+}
+
+.single-cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.single-cat-description {
+    padding-bottom: 10rem;
 }

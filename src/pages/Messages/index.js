@@ -31,6 +31,7 @@ const Messages = () => {
     const [searchValue, setSearchValue] = useState('')
     const [searchType, setSearchType] = useState(options[0].value)
     const [filteredMessages, setFilteredMessages] = useState([])
+    const [activeCommentId, setActiveCommentId] = useState(null)
 
     const timeoutRef = useRef(null)
 
@@ -95,7 +96,12 @@ const Messages = () => {
             <div>
                 {
                     filteredMessages.map(message => (
-                        <Post key={message.id} {...message} />
+                        <Post
+                            key={message.id}
+                            isCommentsOpened={activeCommentId === message.id}
+                            setActiveCommentId={setActiveCommentId}
+                            {...message}
+                        />
                     ))
                 }
             </div>

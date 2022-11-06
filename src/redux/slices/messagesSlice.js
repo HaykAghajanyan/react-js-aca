@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, current} from "@reduxjs/toolkit";
 import {messagesExtraReducer} from "../thunks/messagesThunk";
 
 const initialState = {
@@ -14,6 +14,12 @@ const messagesSlice = createSlice({
         setMessage: (state, {payload}) => {
             state.messages.unshift(payload)
         },
+        addComment: (state, {payload}) => {
+            const {id, commentsArr} = payload
+            const messageIndex = state.messages.findIndex(item => item.id === id)
+
+            state.messages[messageIndex].comments = commentsArr
+        },
         deleteMessage: (state, {payload}) => {
             state.messages = state.messages.filter(item => item.id !== payload)
         }
@@ -23,7 +29,7 @@ const messagesSlice = createSlice({
     }
 })
 
-export const {setMessage, deleteMessage} = messagesSlice.actions
+export const {setMessage, deleteMessage, addComment} = messagesSlice.actions
 
 export const messagesSelector = state => state.messages.messages
 export const messagesLoadingSelector = state => state.messages.loading

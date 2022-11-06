@@ -2,9 +2,11 @@ import {lazy} from "react";
 import {Navigate} from "react-router-dom";
 
 import App from "../App";
+import SingleCat from "../pages/SingleCat";
 
 const Cats = lazy(() => import("../pages/Cats"))
 const Circles = lazy(() => import("../pages/Circles"))
+const Profile = lazy(() => import("../pages/Profile"))
 const Settings = lazy(() => import("../pages/Settings"))
 const Messages = lazy(() => import("../pages/Messages"))
 const Authentication = lazy(() => import("../pages/Authentication"))
@@ -12,7 +14,7 @@ const Authentication = lazy(() => import("../pages/Authentication"))
 const routes = [
     {
         path: '/',
-        element: <App />,
+        element: <App/>,
         children: [
             {
                 path: 'circles',
@@ -29,20 +31,28 @@ const routes = [
                 ]
             },
             {
-              path: 'settings',
-              element: <Settings />
+                path: 'settings',
+                element: <Settings/>
             },
             {
-              path: 'cats',
-              element: <Cats />
+                path: 'cats',
+                element: <Cats/>,
             },
             {
-              path: 'auth',
-              element: <Authentication />
+                path: 'cats/:id',
+                element: <SingleCat />
+            },
+            {
+                path: 'auth',
+                element: <Authentication/>
+            },
+            {
+                path: 'profile',
+                element: <Profile/>
             },
             {
                 path: '*',
-                element: <Navigate to='/circles' />,
+                element: <Navigate to='/circles'/>,
             }
         ]
     },
