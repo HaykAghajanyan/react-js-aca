@@ -331,3 +331,17 @@ code {
 .single-cat-description {
     padding-bottom: 10rem;
 }
+
+/* errors */
+
+.inputError {
+    color: red;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 3px;
+}
+/* 
+.emptyInputError {
+    border-color: red;
+} */

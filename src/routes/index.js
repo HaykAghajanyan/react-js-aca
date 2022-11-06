@@ -12,50 +12,50 @@ const Messages = lazy(() => import("../pages/Messages"))
 const Authentication = lazy(() => import("../pages/Authentication"))
 
 const routes = [
-    {
-        path: '/',
-        element: <App/>,
-        children: [
-            {
-                path: 'circles',
-                element: <Circles/>,
-            },
-            {
-                path: 'messages',
-                element: <Messages/>,
-                children: [
-                    {
-                        path: ':id',
-                        element: <div>MESSAGE</div>
-                    }
-                ]
-            },
-            {
-                path: 'settings',
-                element: <Settings/>
-            },
-            {
-                path: 'cats',
-                element: <Cats/>,
-            },
-            {
-                path: 'cats/:id',
-                element: <SingleCat />
-            },
-            {
-                path: 'auth',
-                element: <Authentication/>
-            },
-            {
-                path: 'profile',
-                element: <Profile/>
-            },
-            {
-                path: '*',
-                element: <Navigate to='/circles'/>,
-            }
-        ]
-    },
+	{
+		path: '/',
+		element: <App/>,
+		children: [
+			{
+				path: 'circles',
+				element: <Circles/>,
+			},
+			{
+				path: 'messages',
+				element: <Messages/>,
+				children: [
+					{
+						path: ':id',
+						element: <div>MESSAGE</div>
+					}
+				]
+			},
+			{
+				path: 'settings',
+				element: <Settings/>
+			},
+			{
+				path: 'cats',
+				element: <Cats/>,
+			},
+			{
+				path: 'cats/:id',
+				element: <SingleCat />
+			},
+			{
+				path: 'auth',
+				element: <Authentication/>
+			},
+			{
+				path: 'profile',
+				element: <Profile/>
+			},
+			{
+				path: '*',
+				element: <Navigate to='/circles'/>,
+			}
+		]
+	},
 ]
 
 export default routes;

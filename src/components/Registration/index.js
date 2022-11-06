@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import { hash } from "../helpers";
 import {LOGIN} from "../../constants";
@@ -7,7 +6,7 @@ import instance from "../../api/axios";
 
 const Registration = ({navigateTo}) => {
 	
-	const navigate = useNavigate()
+
 	const [email, setEmail] = useState("")
 	const [error, setError] = useState("")
 	const [userName, setUserName] = useState("")
@@ -30,12 +29,13 @@ const Registration = ({navigateTo}) => {
 		if(!error) {
 			instance.post("users", userInfoObj)
 			.then(res => res.data)
-			navigate('/circles')
+			navigateTo(LOGIN)
 		}
 		else {
-			setError("Inputs are Required!!!")
+			setError(
+				<p className="inputError">Inputs are Required !!!</p>
+			)
 		}
-		
 	}
 
 	return (
