@@ -9,6 +9,7 @@ import {
     messagesSelector,
     setMessage
 } from "../../redux/slices/messagesSlice";
+import {useInfiniteScroll} from "../../hooks/useInfiteScroll";
 
 const options = [
     {
@@ -60,7 +61,6 @@ const Messages = () => {
             setFilteredMessages(filteredData)
         }, 300)
     }
-
     return (
         <section className='messages-container'>
             <button

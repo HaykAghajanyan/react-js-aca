@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Outlet, useNavigate} from 'react-router-dom';
 
 import Header from "./components/Header";
+import instance from "./api/axios";
 
 // hooks
 // forceUpdate
@@ -12,25 +13,17 @@ import Header from "./components/Header";
 
 const App = () => {
     const navigate = useNavigate()
-    // const [a, setA] = useState(true)
 
     useEffect(() => {
         navigate('circles');
     }, [])
 
-    // useEffect(() => {
-    //     return () => {
-    //         console.log('44')
-    //     }
-    // }, [a])
-
     return (
         <>
-            <Header />
+            <Header/>
             <div className='container'>
                 <Outlet/>
             </div>
-            {/*<button onClick={() => setA(prev => !prev)}>click me</button>*/}
         </>
     )
 }
